@@ -1,32 +1,23 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
+.cache
+scalastyle-output.xml
 .classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
 .idea
-*.iws
+.metadata
+.settings
+.project
+.version.properties
+filter.properties
+logs.zip
+target
+tmp
+*.class
 *.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/
+*.swp
+*.jar
+*.zip
+*.log
+*.pyc
+.DS_Store
+build-target
+out/
+log/
