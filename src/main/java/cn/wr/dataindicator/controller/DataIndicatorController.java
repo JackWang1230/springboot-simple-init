@@ -26,7 +26,7 @@ import java.util.List;
  */
 
 @RestController
-@Api("各维度指标统计")
+@Api(tags = "各维度指标统计")
 @RequestMapping("/dataindicator")
 @Slf4j
 public class DataIndicatorController {

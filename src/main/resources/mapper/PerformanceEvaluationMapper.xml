@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wr.dataindicator.mapper.PerformanceEvaluationMapper">
+
+    <resultMap id="BaseResultMap" type="cn.wr.dataindicator.model.entity.InstitutionEval">
+        <result property="institutionName" column="institution_name" jdbcType="VARCHAR"/>
+        <result property="evaluateYear" column="evaluate_year" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <select id="listInstitutionEval" resultMap="BaseResultMap">
+        select institution_name, evaluate_year
+        from performance_evaluation
+        group by institution_name, evaluate_year
+    </select>
+</mapper>
