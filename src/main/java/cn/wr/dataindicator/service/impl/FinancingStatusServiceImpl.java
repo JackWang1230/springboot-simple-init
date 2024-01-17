@@ -29,7 +29,9 @@ public class FinancingStatusServiceImpl extends ServiceImpl<FinancingStatusMappe
     public Page<FinancingStatusVO> getFinancingStatusPageVO(PageRequest pageRequest) {
 
         Page<FinancingStatus> financingStatusPage = PageUtils.getPageDTO(pageRequest, getBaseMapper());
-        return transFinancingStatusPageToVOPage(financingStatusPage);
+
+        return PageUtils.transObjToVO(financingStatusPage,FinancingStatusVO.class);
+//        return transFinancingStatusPageToVOPage(financingStatusPage);
 
 
     }
@@ -37,13 +39,14 @@ public class FinancingStatusServiceImpl extends ServiceImpl<FinancingStatusMappe
     @Override
     public FinancingStatusVO getFinancingStatusByInstitutionEval(InstitutionEval institutionEval) {
 
-        LambdaQueryWrapper<FinancingStatus> eq = new QueryWrapper<FinancingStatus>()
-                .lambda()
-                .eq(Objects.nonNull(institutionEval.getInstitutionName()),
-                        FinancingStatus::getInstitutionName, institutionEval.getInstitutionName())
-                .eq(Objects.nonNull(institutionEval.getEvaluateYear()),
-                        FinancingStatus::getEvaluateYear, institutionEval.getEvaluateYear());
-        return FinancingStatusVO.objToVo(getBaseMapper().selectOne(eq));
+//        LambdaQueryWrapper<FinancingStatus> eq = new QueryWrapper<FinancingStatus>()
+//                .lambda()
+//                .eq(Objects.nonNull(institutionEval.getInstitutionName()),
+//                        FinancingStatus::getInstitutionName, institutionEval.getInstitutionName())
+//                .eq(Objects.nonNull(institutionEval.getEvaluateYear()),
+//                        FinancingStatus::getEvaluateYear, institutionEval.getEvaluateYear());
+//        return FinancingStatusVO.objToVo(getBaseMapper().selectOne(eq));
+        return PageUtils.getVOByInstitutionEval(institutionEval,FinancingStatusVO.class,FinancingStatus.class,getBaseMapper());
     }
 
     /**

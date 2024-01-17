@@ -70,6 +70,9 @@ public class InstitutionIndicatorController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         FinancingStatusVO financingStatusByInstitutionEval = financingStatusService.getFinancingStatusByInstitutionEval(institutionEval);
+        if (ObjectUtil.isNull(financingStatusByInstitutionEval)){
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
         return ResultUtils.success(financingStatusByInstitutionEval);
     }
 }
