@@ -26,6 +26,7 @@ public class PageUtils {
 
     /**
      *  基于分页参数查询数据
+     *  默认按照id进行排序升序排序，也可以根据传入的字段及排序顺序进行排序
      * @param pageRequest pageRequest
      * @param service service
      * @param <T> DTO
@@ -37,7 +38,8 @@ public class PageUtils {
         QueryWrapper<T> id = new QueryWrapper<T>()
                 .orderBy(SqlUtils.validSortField(pageRequest.getSortField())
                         , pageRequest.getSortOrder().equals(CommonConstant.SORT_ORDER_ASC)
-                        , CommonConstant.ID);
+                        , SqlUtils.validSortField(pageRequest.getSortField()) ?
+                                pageRequest.getSortField() : CommonConstant.ID);
         return service.selectPage(objectPage,id);
 
     }
