@@ -2,6 +2,7 @@ package cn.wr.dataindicator.model.vo;
 
 import cn.wr.dataindicator.model.entity.AdminDistrict;
 import cn.wr.dataindicator.model.entity.OpenInnovationInternationalCompetitiveness;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
@@ -13,40 +14,46 @@ import java.math.BigDecimal;
  */
 @Data
 public class OpenInnovationInternationalCompetitivenessVO extends AdminDistrict {
-
     /**
      * 设境外研发机构内资控股企业数
      */
+    @TableField(value = "domestic_with_oversea_rnd_org_cnt")
     private BigDecimal domestic_with_oversea_rnd_org_cnt;
 
     /**
      * 境内外产学研经费支出总额占营业收入比例
      */
+    @TableField(value = "rnd_costs_in_revenue_rate")
     private BigDecimal rnd_costs_in_revenue_rate;
 
     /**
      * 获境外注册商标及发明专利授权的内资控股企业数
      */
+    @TableField(value = "domestic_with_trademark_patent_cnt")
     private BigDecimal domestic_with_trademark_patent_cnt;
 
     /**
      * 新增主导制定国际标准的内资控股企业数
      */
+    @TableField(value = "domestic_with_intl_std_cnt")
     private BigDecimal domestic_with_intl_std_cnt;
 
     /**
      * 出口总额中技术服务出口占比
      */
+    @TableField(value = "tech_serv_in_export_rate")
     private BigDecimal tech_serv_in_export_rate;
 
     /**
      * 高新技术企业出口额占营业收入占比
      */
+    @TableField(value = "high_tech_export_in_revenue_rate")
     private BigDecimal high_tech_export_in_revenue_rate;
 
     /**
      * 外籍常驻及留学在从业人中占比
      */
+    @TableField(value = "foreign_resid_returned_stu_rate")
     private BigDecimal foreign_resid_returned_stu_rate;
 
     /**
